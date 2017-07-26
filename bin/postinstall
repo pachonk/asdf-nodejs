@@ -1,9 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-package_bin_names=$($NODE $(dirname $0)/get-bin-names.js)
-IFS=' ' read -a package_bin_names_list <<< "$package_bin_names"
-
-for package_bin in "${package_bin_names_list[@]}"
-do
-  asdf shim nodejs .npm/bin/${package_bin}
-done
+asdf reshim nodejs
